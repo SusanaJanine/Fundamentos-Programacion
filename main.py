@@ -6,17 +6,17 @@ from math import sqrt, pow, log, exp, tan, cos, sin, radians, pi
 def menu ():
     print("¡BIENVENIDO A LA CALCULADORA MÁGICA!")
     print("Por favor elija una opcion: ")
-    print("Operaciones Matematicas Basicas")
+    print("--- Operaciones Matematicas Basicas ---")
     print("1. Suma")
     print("2. Resta")
     print("3. Multiplicacion")
     print("4. Division")
-    print("Operaciones Avanzadas")
+    print("--- Operaciones Avanzadas ---")
     print("5. Raiz cuadrada")
     print("6. Potencia")
     print("7. Logaritmo")
     print("8. Exponencial")
-    print("Conversiones")
+    print("--- Conversiones ---")
     print("9. Km a Millas")
     print("10. Fahrenheit a celsius")
     print("11. Lbs a Kg")
@@ -24,15 +24,16 @@ def menu ():
     print("13. Cm a Mts")
     print("14. Hrs a Min")
     print("15. Ft a Cm")
-    print("Funciones Trigonometricas")
+    print("--- Funciones Trigonometricas ---")
     print("16. Tangente")
     print("17. Seno")
     print("18. Coseno")
-    print("Funciones extras")
+    print("--- Funciones extras ---")
     print("19. Area rectangulo")
     print("20. Area circulo")
     print("21. Combo suma + raiz cuadrada")
     print("22. Modo Mision (Terreno)")
+    print("--------------")
     print("23. Ver historial")
     print("24. Salida")
 
@@ -178,13 +179,13 @@ if __name__ == "__main__":
             n1 = float(input("Favor de ingresar la base del rectangulo:"))
             n2 = float(input("Favor de ingresar la altura del rectangulo :"))
             print(f"El area del rectangulo es: {multiplicacion(n1, n2)}")
-            guardar_historial(historial, f"Area Rectangulo: {n1}b * {n2}h = {multiplicacion(n1, n2):.2f}")
+            guardar_historial(historial, f"Area de un Rectangulo: {n1}b * {n2}h = {multiplicacion(n1, n2):.2f}")
 
         elif opcion == 20:
             print("Has elegido el camino para calcular el Area de un Circulo")
             n1 = float(input("Favor de ingresa el radio del circulo:"))
             print(f"El area del circulo es: {pi * (n1**2):.4f}")
-            guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)}")
+            guardar_historial(historial, f"Area de un Circulo: {n1} x {pi} = {pi * (n1**2):.4f}")
 
         elif opcion == 21: # Esta opcion permite realizar dos operaciones al mismo tiempo, primero se haria la suma de dos numeros y posteriormente se sacaria la raiz cuadrada de esos dos numeros.
             print ("Has elegido el modo combo suma + raiz cuadrada")
@@ -192,7 +193,7 @@ if __name__ == "__main__":
             n2 = int(input("Favor de ingresar el segundo numero a sumar: "))
             resultado_suma = suma(n1,n2)
             print(f"El resultado de la suma es: {suma(n1, n2)} y la raiz cuadrada del resultado es: {sqrt(resultado_suma)}") 
-            guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)}")
+            guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)} y Raiz cuadrada: √{suma(n1, n2)} = {sqrt(resultado_suma)}")
 
         elif opcion == 22:
             print("Has elegido el Modo Mision (Precio de un terreno)")
@@ -200,12 +201,16 @@ if __name__ == "__main__":
             n2 = float(input("Favor de ingresar el largo del terreno: "))
             n3 = float(input("Por favor ingrese el precio por metro cuadrado: "))
             area = multiplicacion(n1, n2)
-            print(f"Área del terreno: {multiplicacion(n1,n2):.4f}m² Precio total: {multiplicacion(area, n3):.2f} ")
-            guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)}")
+            print(f"Área del terreno: {multiplicacion(n1,n2):.4f}m² Precio total: ${multiplicacion(area, n3):.2f} ")
+            guardar_historial(historial, f"Modo Mision: Area = {n1} x {n2} = {multiplicacion(n1, n2)} Precio total = ${multiplicacion(area, n3):.2f}")
 
         elif opcion == 23:
-            print("Has elegido Ver el Historial")
-
+            print("Historial")
+            if historial:
+                for registro in historial:
+                    print(registro)
+            else:
+                print("No hay registros aún.")
 
         elif opcion == 24: # Si el usuario elige la opcion 24, el programa se termina.
             print("Has elegido salir")
