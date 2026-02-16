@@ -1,11 +1,12 @@
 from calculadora import suma, resta, multiplicacion, division
-from utilidades import fahrenheit_celsius, km_millas
+from utilidades import fahrenheit_celsius, km_millas, lbs_kg, m_km, cm_m, hrs_minutos, pies_cm
 from datetime import datetime
 from math import sqrt, pow, log, exp, tan, cos, sin, radians
 
 def menu ():
     print("¡BIENVENIDO A LA CALCULADORA MÁGICA!")
     print("Por favor elija una opcion: ")
+    print("Operaciones Matematicas Basicas")
     print("1. Suma")
     print("2. Resta")
     print("3. Multiplicacion")
@@ -14,13 +15,23 @@ def menu ():
     print("6. Potencia")
     print("7. Logaritmo")
     print("8. Exponencial")
+    print("Conversiones")
     print("9. Km a Millas")
     print("10. Fahrenheit a celsius")
-    print("11. Tangente")
-    print("12. Seno")
-    print("13. Coseno")
-    print("14. Combo suma + raiz cuadrada")
-    print("15. Salida")
+    print("11. Lbs a Kg")
+    print("12. Mts a Km")
+    print("13. Cm a Mts")
+    print("14. Hrs a Min")
+    print("15. Pie a Cm")
+    print("Funciones Trigonometricas")
+    print("16. Tangente")
+    print("17. Seno")
+    print("18. Coseno")
+    print("Operaciones Avanzadas")
+    print("19. Area rectangulo")
+    print("20. Area circulo")
+    print("21. Combo suma + raiz cuadrada")
+    print("22. Salida")
 
 if __name__ == "__main__":
     date= datetime.now() # Se obtiene la fecha y hora actual
@@ -88,32 +99,68 @@ if __name__ == "__main__":
             print("Has elegido la conversion de fahrenheit a celsius")
             n1 = float(input("Favor de ingresar el numero de los fahrenheit: "))
             print(f"El resultado de los fahrenheit a celsius es: {fahrenheit_celsius(n1)}") # Se muestra el resultado de la conversion de fahrenheit a celsius.
-        
-# Para las opciones 11, 12 y 13, se solicita al usuario un numero pero primero se convierte ese numero a radianes. Porque las funciones trigonometricas en python trabajan con radianes, por lo que es necesario convertir el numero ingresado a radianes.
+
         elif opcion == 11:
+            print("Has elegido la conversion de Lbs a Kg")
+            n1 = float(input("Favor de ingresar la cantidad de las Lbs: "))
+            print(f"El resultado de la conversion Lbs a Kg es: {lbs_kg(n1)}")
+
+        elif opcion == 12:
+            print("Has elegido la conversion de Mts a Km")
+            n1 = float(input("Favor de ingresar la cantidad de los Mts: "))
+            print(f"El resultado de la conversion Mts a Km es: {m_km(n1)}")
+
+        elif opcion == 13:
+            print("Has elegido la conversion de Cm a Mts")
+            n1 = float(input("Favor de ingresar la cantidad de los Cm: "))
+            print(f"El resultado de la conversion Cm a Mts es: {cm_m(n1)}")
+        
+        elif opcion == 14:
+            print("Has elegido la conversion de Hrs a Min")
+            n1 = float(input("Favor de ingresar la cantidad de las Hrs: "))
+            print(f"El resultado de la conversion Hrs a Min es: {hrs_minutos(n1)}")
+
+        elif opcion == 15:
+            print("Has elegido la conversion de Pie a Cm")
+            n1 = float(input("Favor de ingresar la cantidad de : "))
+            print(f"El resultado de la conversion Pie a Cm es: {pies_cm(n1)}")
+        
+# Para las opciones 1, se solicita al usuario un numero pero primero se convierte ese numero a radianes. Porque las funciones trigonometricas en python trabajan con radianes, por lo que es necesario convertir el numero ingresado a radianes.
+        elif opcion == 16:
             print("Has elegido el camino de la tangente")
             n1 = float(input("Favor de ingresar el numero para sacar su tangente: "))
             rad = radians(n1) # Se convierte el numero ingresado a radianes para poder calcular su tangente
             print(f"El resultado de la tangente es: {tan(rad):.4f}") # Se muestra el resultado de la tangente con 4 decimales
             
-        elif opcion == 12:
+        elif opcion == 17:
             print("Has elegido el camino del seno")
             n1 = float(input("Favor de ingresar el numero para sacar su seno: "))
             rad = radians(n1) # Se convierte el numero ingresado a radianes para poder calcular su seno
             print(f"El resultado del seno es: {sin(rad):.4f}") # Se muestra el resultado del seno con 4 decimales
 
-        elif opcion == 13:
+        elif opcion == 18:
             print("Has elegido el camino del coseno")
             n1 = float(input("Favor de ingresar el numero para sacar su coseno: "))
             rad = radians(n1) # Se convierte el numero ingresado a radianes para poder calcular su coseno
             print(f"El resultado del coseno es: {cos(rad):.4f}") # Se muestra el resultado del coseno con 4 decimales
+        
+        elif opcion == 19:
+            print("Has elegido el camino para encontrar el Area del Rectangulo")
+            n1 = float(input("Favor de ingresar :"))
+            n2 = float(input("Favor de ingresar :"))
+            print(f"El resultado de las lbs a kg es: {(n1)}")
 
-        elif opcion == 14:
+        elif opcion == 20:
+            print("Has elegido el camino del Area del Circulo")
+            n1 = float(input("Favor de ingresar las lbs:"))
+            print(f"El resultado de las lbs a kg es: {lbs_kg(n1)}")
+
+        elif opcion == 21: # Esta opcion permite realizar dos operaciones al mismo tiempo, primero se haria la suma de dos numeros y posteriormente se sacaria la raiz cuadrada de esos dos numeros.
             print ("Has elegido el modo combo suma + raiz cuadrada")
             n1 = int(input("Favor de ingresar el primer numero a sumar: "))
             n2 = int(input("Favor de ingresar el segundo numero a sumar: "))
             resultado_suma = suma(n1,n2)
             print(f"El resultado de la suma es: {suma(n1, n2)} y la raiz cuadrada del resultado es: {sqrt(resultado_suma)}") 
 
-        elif opcion == 15: # Si el usuario elige la opcion 14, el programa se termina.
+        elif opcion == 22: # Si el usuario elige la opcion 14, el programa se termina.
             print("Has elegido salir")
