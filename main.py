@@ -196,16 +196,16 @@ if __name__ == "__main__":
             guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)} y Raiz cuadrada: √{suma(n1, n2)} = {sqrt(resultado_suma)}")
 
         elif opcion == 22:
-            print("Has elegido el Modo Mision (Precio de un terreno)")
+            print("Has elegido el Modo Mision (Terreno)")
             n1 = float(input("Favor de ingresar el ancho del terreno: "))
             n2 = float(input("Favor de ingresar el largo del terreno: "))
             n3 = float(input("Por favor ingrese el precio por metro cuadrado: "))
             area = multiplicacion(n1, n2)
             print(f"Área del terreno: {multiplicacion(n1,n2):.4f}m² Precio total: ${multiplicacion(area, n3):.2f} ")
-            guardar_historial(historial, f"Modo Mision: Area = {n1} x {n2} = {multiplicacion(n1, n2)} Precio total = ${multiplicacion(area, n3):.2f}")
+            guardar_historial(historial, f"Modo Mision (Terreno): Area = {n1} x {n2} = {multiplicacion(n1, n2)} Precio total = ${multiplicacion(area, n3):.2f}")
 
         elif opcion == 23:
-            print("Historial")
+            print("--- Historial ---")
             if historial:
                 for registro in historial:
                     print(registro)
