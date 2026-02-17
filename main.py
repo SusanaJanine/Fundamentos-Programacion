@@ -39,14 +39,14 @@ def menu ():
 
 def guardar_historial (historial, texto):
     fecha = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    historial.append(f"[{fecha}] {texto}")
+    historial.append(f"[{fecha}] {texto}") # Crea el formato para el historial
 
 
 if __name__ == "__main__":
     date = datetime.now() # Se obtiene la fecha y hora actual
     print("Fecha y hora actual:", date.strftime("%d/%m/%Y %H:%M:%S")) # Se muestra la fecha y hora actual
 
-    historial = []
+    historial = [] # Permite crear un historial que no se elimine.
 
     opcion = 0
     while opcion != 24: # El programa se ejecuta hasta que el usuario elija la opcion 24 para salir
@@ -56,6 +56,7 @@ if __name__ == "__main__":
         if opcion < 1 or opcion > 24: # Verificar que la opcion elegida sea valida
             print("Opcion incorrecta, seleccione otra opcion")
 
+# Opcion definida para realizar operaciones de suma.
         elif opcion == 1:
             print("Has elegido el camino de la suma")
             n1 = int(input("Favor de ingresar el primer numero a sumar: "))
@@ -63,7 +64,7 @@ if __name__ == "__main__":
             print(f"El resultado de la suma es: {suma(n1, n2)}") # Se muestra el resultado de la suma.
             guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)}")
 
-            
+# Esta opcion permite realizar operaciones de resta.
         elif opcion == 2:
             print("Has elegido el camino de la resta")
             n1 = int(input("Favor de ingresar el primer numero a restar: "))
@@ -164,8 +165,8 @@ if __name__ == "__main__":
         elif opcion == 14:
             print("Has elegido la conversion de Hrs a Min")
             n1 = float(input("Favor de ingresar la cantidad de las Hrs: "))
-            print(f"El resultado de la conversion Hrs a Min es: {hrs_minutos(n1)}min")
-            guardar_historial(historial, f"Hrs a Min: {n1}hrs = {hrs_minutos(n1)}min")
+            print(f"El resultado de la conversion Hrs a Min es: {hrs_minutos(n1):.1f}min")
+            guardar_historial(historial, f"Hrs a Min: {n1}hrs = {hrs_minutos(n1):.1f}min")
 
         elif opcion == 15:
             print("Has elegido la conversion de Ft a Cm")
