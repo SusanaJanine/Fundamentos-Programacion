@@ -33,7 +33,7 @@ def menu ():
     print("20. Area circulo")
     print("21. Combo suma + raiz cuadrada")
     print("22. Modo Mision (Terreno)")
-    print("--------------")
+    print("----------------------")
     print("23. Ver historial")
     print("24. Salida")
 
@@ -80,14 +80,35 @@ if __name__ == "__main__":
             
         elif opcion == 4:
             print("Has elegido el camino de la division")
-            n1 = float(input("Favor de ingresar el primer numero a dividir: "))
-            n2 = float(input("Favor de ingresar el segundo numero a dividir: "))
-            print(f"El resultado de la division es: {division(n1, n2):.4f}") # Se muestra el resultado de la division con 4 decimales
-            guardar_historial(historial, f"Division: {n1} / {n2} = {division(n1, n2):.4f}")
+            while True:
+                try:
+                    n1 = float(input("Favor de ingresar el primer numero a dividir: "))
+                    break
+                except ValueError:
+                    print("No se puede dividir entre 0. Intenta con otro numero")
+            while True:
+                try:
+                    n2 = float(input("Favor de ingresar el segundo numero a dividir: "))
+                    if n2 == 0:
+                        print("No se puede dividir entre 0. Intenta con otro numero")
+                    else:
+                        break
+                except ValueError: # Funciona para que el programa no se rompa si se escribe un texto
+                    print("Invalido. Intenta con ")
+            print(f"El resultado de la division es: {division(n1, n2):.1f}") # Se muestra el resultado de la division con 4 decimales
+            guardar_historial(historial, f"Division: {n1} / {n2} = {division(n1, n2):.1f}")
         
         elif opcion == 5:
             print("Has elegido el camino de la raiz cuadrada")
-            n1 = float(input("Favor de ingresar el numero para sacar su raiz cuadrada: "))
+            while True:
+                try:
+                    n1 = float(input("Favor de ingresar el numero para sacar su raiz cuadrada: "))
+                    if n1 < 0:
+                        print("No se puede calcular la raiz cuadrada en numeros negativos.")
+                    else:
+                        break
+                except ValueError: # Funciona para que el programa no se rompa si se escribe un texto
+                    print("Invalido, ingresa un numero: ")
             print(f"El resultado de la raiz cuadrada es: {sqrt(n1):.4f}") # Se muestra el resultado de la raiz cuadrada con 4 decimales
             guardar_historial(historial, f"Raiz cuadrada: {n1} = {sqrt(n1):.4f}")
         
@@ -153,6 +174,8 @@ if __name__ == "__main__":
             guardar_historial(historial, f"Ft a Cm: {n1}ft = {pies_cm(n1):.2f}cm")
 
 # Para las opciones 16, 17 y 18 se solicita al usuario un numero pero primero se convierte ese numero a radianes. Porque las funciones trigonometricas en python trabajan con radianes, por lo que es necesario convertir el numero ingresado a radianes.
+
+# Opcion que permite calcular la tangente de un numero, mediante el uso de radiantes, el resultado puede no ser un numero exacto pero si cercano.  
         elif opcion == 16:
             print("Has elegido el camino de la tangente")
             n1 = float(input("Favor de ingresar el numero para sacar su tangente: "))
@@ -160,6 +183,7 @@ if __name__ == "__main__":
             print(f"El resultado de la tangente es: {tan(rad):.4f}") # Se muestra el resultado de la tangente con 4 decimales
             guardar_historial(historial, f"Tangente: Tan{n1} = {tan(rad):.4f}")
 
+# Opcion que permite calcular el seno de un numero, mediante el uso de radiantes.
         elif opcion == 17:
             print("Has elegido el camino del seno")
             n1 = float(input("Favor de ingresar el numero para sacar su seno: "))
@@ -167,6 +191,7 @@ if __name__ == "__main__":
             print(f"El resultado del seno es: {sin(rad):.4f}") # Se muestra el resultado del seno con 4 decimales
             guardar_historial(historial, f"Seno: Sin{n1} = {sin(rad):.4f}")
 
+# Opcion que permite calcular el coseno de un numero, mediante el uso de radiantes
         elif opcion == 18:
             print("Has elegido el camino del coseno")
             n1 = float(input("Favor de ingresar el numero para sacar su coseno: "))
@@ -174,6 +199,7 @@ if __name__ == "__main__":
             print(f"El resultado del coseno es: {cos(rad):.4f}") # Se muestra el resultado del coseno con 4 decimales
             guardar_historial(historial, f"Coseno: cos{n1} = {cos(rad):.4f}")
 
+# Esta opcion permite calcular el area de un rectangulo
         elif opcion == 19:
             print("Has elegido el camino para calcular el Area de un Rectangulo")
             n1 = float(input("Favor de ingresar la base del rectangulo:"))
@@ -181,13 +207,15 @@ if __name__ == "__main__":
             print(f"El area del rectangulo es: {multiplicacion(n1, n2)}")
             guardar_historial(historial, f"Area de un Rectangulo: {n1}b * {n2}h = {multiplicacion(n1, n2):.2f}")
 
+# Esta opcion permite calcular el área de un circulo.
         elif opcion == 20:
             print("Has elegido el camino para calcular el Area de un Circulo")
             n1 = float(input("Favor de ingresa el radio del circulo:"))
             print(f"El area del circulo es: {pi * (n1**2):.4f}")
             guardar_historial(historial, f"Area de un Circulo: {n1} x {pi} = {pi * (n1**2):.4f}")
 
-        elif opcion == 21: # Esta opcion permite realizar dos operaciones al mismo tiempo, primero se haria la suma de dos numeros y posteriormente se sacaria la raiz cuadrada de esos dos numeros.
+# Esta opcion permite realizar dos operaciones al mismo tiempo, primero se haria la suma de dos numeros y posteriormente se sacaria la raiz cuadrada de esos dos numeros.
+        elif opcion == 21:
             print ("Has elegido el modo combo suma + raiz cuadrada")
             n1 = int(input("Favor de ingresar el primer numero a sumar: "))
             n2 = int(input("Favor de ingresar el segundo numero a sumar: "))
@@ -195,6 +223,7 @@ if __name__ == "__main__":
             print(f"El resultado de la suma es: {suma(n1, n2)} y la raiz cuadrada del resultado es: {sqrt(resultado_suma)}") 
             guardar_historial(historial, f"Suma: {n1} + {n2} = {suma(n1, n2)} y Raiz cuadrada: √{suma(n1, n2)} = {sqrt(resultado_suma)}")
 
+# Esta es un opcion que determina el area y el precio total de un terreno
         elif opcion == 22:
             print("Has elegido el Modo Mision (Terreno)")
             n1 = float(input("Favor de ingresar el ancho del terreno: "))
@@ -204,6 +233,7 @@ if __name__ == "__main__":
             print(f"Área del terreno: {multiplicacion(n1,n2):.4f}m² Precio total: ${multiplicacion(area, n3):.2f} ")
             guardar_historial(historial, f"Modo Mision (Terreno): Area = {n1} x {n2} = {multiplicacion(n1, n2)} Precio total = ${multiplicacion(area, n3):.2f}")
 
+# Opcion creada para obtener el historial de las operaciones y funciones utilizadas
         elif opcion == 23:
             print("--- Historial ---")
             if historial:
@@ -212,5 +242,6 @@ if __name__ == "__main__":
             else:
                 print("No hay registros aún.")
 
-        elif opcion == 24: # Si el usuario elige la opcion 24, el programa se termina.
+# Si el usuario elige la opcion 24, el programa se termina y se cierra.
+        elif opcion == 24:
             print("Has elegido salir")
