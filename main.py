@@ -84,7 +84,7 @@ if __name__ == "__main__":
                 try:
                     n1 = float(input("Favor de ingresar el primer numero a dividir: "))
                     break
-                except ValueError:
+                except ValueError: # Funciona para que el programa no se rompa y continue
                     print("No se puede dividir entre 0. Intenta con otro numero")
             while True:
                 try:
@@ -93,8 +93,8 @@ if __name__ == "__main__":
                         print("No se puede dividir entre 0. Intenta con otro numero")
                     else:
                         break
-                except ValueError: # Funciona para que el programa no se rompa si se escribe un texto
-                    print("Invalido. Intenta con ")
+                except ValueError: # Funciona para que el programa no se rompa y continue
+                    print("Invalido. Intenta con otro numero")
             print(f"El resultado de la division es: {division(n1, n2):.1f}") # Se muestra el resultado de la division con 4 decimales
             guardar_historial(historial, f"Division: {n1} / {n2} = {division(n1, n2):.1f}")
         
@@ -107,7 +107,7 @@ if __name__ == "__main__":
                         print("No se puede calcular la raiz cuadrada en numeros negativos.")
                     else:
                         break
-                except ValueError: # Funciona para que el programa no se rompa si se escribe un texto
+                except ValueError: # Funciona para que el programa no se rompa y continue
                     print("Invalido, ingresa un numero: ")
             print(f"El resultado de la raiz cuadrada es: {sqrt(n1):.4f}") # Se muestra el resultado de la raiz cuadrada con 4 decimales
             guardar_historial(historial, f"Raiz cuadrada: {n1} = {sqrt(n1):.4f}")
@@ -226,7 +226,11 @@ if __name__ == "__main__":
 # Esta es un opcion que determina el area y el precio total de un terreno
         elif opcion == 22:
             print("Has elegido el Modo Mision (Terreno)")
-            n1 = float(input("Favor de ingresar el ancho del terreno: "))
+            while True:
+                try:
+                    n1 = float(input("Favor de ingresar el ancho del terreno: "))
+                    if n1 <= 0:
+                        print("Invalido, ingresa otro numero.")
             n2 = float(input("Favor de ingresar el largo del terreno: "))
             n3 = float(input("Por favor ingrese el precio por metro cuadrado: "))
             area = multiplicacion(n1, n2)
