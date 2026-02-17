@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
         elif opcion == 15:
             print("Has elegido la conversion de Ft a Cm")
-            n1 = float(input("Favor de ingresar la cantidad de : "))
+            n1 = float(input("Favor de ingresar la cantidad de Ft: "))
             print(f"El resultado de la conversion Ft a Cm es: {pies_cm(n1):.2f}cm")
             guardar_historial(historial, f"Ft a Cm: {n1}ft = {pies_cm(n1):.2f}cm")
 
