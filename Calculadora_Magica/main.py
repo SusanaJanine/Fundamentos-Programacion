@@ -1,5 +1,5 @@
-from calculadora import suma, resta, multiplicacion, division
-from utilidades import fahrenheit_celsius, km_millas, lbs_kg, m_km, cm_m, hrs_minutos, pies_cm
+from Calculadora_Magica.calculadora import suma, resta, multiplicacion, division
+from Calculadora_Magica.utilidades import fahrenheit_celsius, km_millas, lbs_kg, m_km, cm_m, hrs_minutos, pies_cm
 from datetime import datetime
 from math import sqrt, pow, log, exp, tan, cos, sin, radians, pi
 
