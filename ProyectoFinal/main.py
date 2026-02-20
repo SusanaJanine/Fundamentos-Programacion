@@ -53,4 +53,4 @@ if __name__ == "__main__":
                 print ("obesidad media")
             elif imc >= 40.00:
                 print ("obesidad morbida") 
-            guardar_historial(historial, f"Nombre: {nombre} Edad: {edad} Peso: {n1} Altura: {n2} IMC: {calcular_imc(n1, n2)} Categoria: {categoria_imc}")
+            guardar_historial(historial, f"Nombre: {nombre} Edad: {edad} Peso: {n1} Altura: {n2} IMC: {imc} Categoria: {categoria_imc}")
