@@ -6,8 +6,8 @@ def menu ():
     print("¡BIENVENIDO A IMC LAB: TU CLÍNICA EXPRESS!")
     print("Por favor elija una opcion: ")
     print("1. Calcular IMC de un paciente")
-    print("2. Ver historial e pacientes")
-    print("3. Buscar paciente por nombre")
+    print("2. Buscar paciente por nombre")
+    print("3. Ver historial de pacientes")
     print("4. Salir")
 
 def guardar_historial (historial, texto):
@@ -50,5 +50,17 @@ if __name__ == "__main__":
             print(f"El IMC del paciente es: {imc}")
             print(f"Categoria: {categoria}")
             print(f"Recomendacion: {recomendacion}")
-            guardar_historial(historial, f"Paciente: {nombre} Edad: {edad}años Peso: {n1}kg  Altura: {n2}cm  IMC: {imc:.2f}  Categoria: {categoria}") 
+            guardar_historial(historial, f"Paciente: {nombre} Edad: {edad}años Peso: {n1}kg  Altura: {n2}cm  IMC: {imc:.2f}  Categoria: {categoria}")
+
+        elif opcion == 2:
+            print("Has elegido buscar paciente por nombre")
+            nombre = input("Nombre del paciente: ")
+
+        elif opcion == 3:
+            print("--- Historial ---")
+            if historial:
+                for registro in historial:
+                    print(registro)
         
+        elif opcion == 4:
+            print("Has elegido salir")
