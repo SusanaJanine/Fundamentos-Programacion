@@ -37,17 +37,18 @@ if __name__ == "__main__":
                 try:
                     n1 = float(input("Peso del paciente (kg): "))
                     n2 = float(input("Altura del paciente (cm): "))
-                    imc = calcular_imc(n1, n2)
-                    categoria = categoria_imc(imc)
-                    recomendacion = recomendacion_por_categoria(categoria)
                     if validacion_datos(n1, n2):
+                        imc = round(calcular_imc(n1, n2))
+                        categoria = categoria_imc(imc)
+                        recomendacion = recomendacion_por_categoria(categoria)
                         break
                     else:
-                        print("El peso y altura debe ser mayor a 0. Por favor intente nuevamente.")
+                        print("El peso y la altura deben ser mayores de 0")
                 except ValueError:
                     print("Ingresa un numero valido")
-            print(f"El IMC del paciente es: {round(imc):.2f}")
+                    
+            print(f"El IMC del paciente es: {imc}")
             print(f"Categoria: {categoria}")
             print(f"Recomendacion: {recomendacion}")
-            guardar_historial(historial, f"Paciente: {nombre} Edad: {edad} Peso: {n1}kg Altura: {n2}cm IMC: {round(imc):.2f} Categoria: {categoria_imc}") 
+            guardar_historial(historial, f"Paciente: {nombre} Edad: {edad}años Peso: {n1}kg  Altura: {n2}cm  IMC: {imc:.2f}  Categoria: {categoria}") 
         
